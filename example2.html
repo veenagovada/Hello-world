@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<style type="text/css">
+	
+	#big{
+		position: relative;
+		width:500px;
+		height:500px;
+		background-color: yellow;
+	}
+	#box{
+		position: absolute;
+		width:100px;
+		height:100px;
+		background-color: red;
+	}
+</style>
+
+<button type="button" id="btn1">Click me!</button>
+<button type="button" id="btn2">Stop me!</button><br>
+<div id="big">
+	<div id="box"></div>
+
+</div>
+
+<script type="text/javascript">
+	var btn =document.getElementById("btn1");
+	var x= document.getElementById("box");
+	var z,y,c,last;
+
+	btn.addEventListener("click",move);
+     
+	function move()
+	
+	{
+		var a=1;
+		 y=setInterval(frame,10);
+     
+    	function frame(){//function for left move started
+   			a=a+1;
+			x.style.left= a +"px";
+			
+			if(a==400){
+				clearInterval(y);
+				z=setInterval(frame2,10);
+			}
+
+		} //function for left move finished
+		
+		var b=0;
+		function frame2()
+		{
+			x.style.top= b +"px";
+			b=b+1;
+			if(b==400){
+				clearInterval(z);
+				c=setInterval(frame3,10);
+			}
+		}
+		
+		var d=400;
+		function frame3(){
+			
+			d=d-1;
+			x.style.left= d +"px";
+			if(d==0){
+				clearInterval(c);
+				last=setInterval(frame4,10);
+			}
+		
+		}
+		
+		var g=400;
+		function frame4(){
+			g=g-1;
+			x.style.top= g +"px";
+			if(g==0){
+				clearInterval(last);
+				
+			}
+		}
+	}
+
+var btn_stop =document.getElementById("btn2");
+btn2.addEventListener("click",stop);
+
+function stop(){
+
+
+clearInterval(y);
+clearInterval(z);
+clearInterval(c);
+clearInterval(last);
+}
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<title></title>
+</head>
+<body>
+<style type="text/css">
+	#text{
+		margin:0 auto;
+		position: relative;
+		top:50px;
+		width:400px;
+		height: 400px;
+		background-color: gray;
+		color:white;
+		display: none;
+	}
+	#popup{
+		margin:0 auto;
+		position: relative;
+		left:500px;
+	}
+	p{
+		text-align: center;
+		padding-top: 200px;
+	}
+</style>
+
+<button id="popup">Click me</button><br>
+
+<div id="text">
+
+	<button id="close">Close</button>
+
+	<p>Popup will be displayed</p>
+
+</div>
+
+<script>
+$(document).ready(function(e){
+	
+	$(document).click(function(e) {
+		if (!$("#popup").is(e.target) && $("#text").css("display")=="block"){
+	 				$("#text").hide();
+	 	 }
+	});
+
+	$("#popup").click(function(){
+		$("#text").css("display","block");
+		
+		
+	});
+
+	$("#close").click(function(){
+		$("#text").hide();
+	});
+});
+
+
+	/*function pop_up(){
+
+		document.getElementById("text").style.display="block";
+	}
+	function close_popup(){
+		document.getElementById("text").style.display="none";
+	}*/
+
+</script>
+</body>
+</html>
